@@ -1,0 +1,17 @@
+1641804165470	Delete elements
+1641892896775	Rename package 'com.btkAkademi.rentACar.core.utilities.result'
+1641897226596	Rename type 'CarController'
+1641987751526	Rename type 'IndividualCustomer'
+1642010629609	Delete element
+1642013828746	Rename type 'CorporotateCustomerDao'
+1642014545106	Rename type 'CreateCorporotateCustomerRequest'
+1642058357757	Rename type 'CreateCarMaintanceRequest'
+1642058907517	Rename type 'CarMaintanaceDto'
+1642063681228	Rename type 'CarMaintanaceService'
+1642063701908	Rename type 'CarMaintanaceManager'
+1642063712395	Rename type 'CarMaintanaceListDto'
+1642063719911	Rename type 'CreateCarMaintanaceRequest'
+1642063733583	Rename type 'CarMaintanaceDao'
+1642063749785	Rename type 'CarMaintanacesController'
+1642107213463	Rename compilation unit 'AdditionalServiceController.java'
+1642156818215	Rename compilation unit 'PaymantsController.java'

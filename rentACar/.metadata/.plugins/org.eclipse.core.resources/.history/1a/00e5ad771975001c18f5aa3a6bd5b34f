@@ -1,0 +1,15 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import com.btkAkademi.rentACar.business.abstracts.PaymentService;
+import com.btkAkademi.rentACar.business.requests.pyamentRequests.CreatePaymentRequest;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+
+public class PaymentManager implements PaymentService {
+
+	@Override
+	public Result add(CreatePaymentRequest createPaymentRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

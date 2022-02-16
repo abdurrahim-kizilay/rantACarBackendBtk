@@ -1,0 +1,33 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.RentalService;
+import com.btkAkademi.rentACar.business.requests.rentalRequests.CreateRentalRequest;
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.dataAccess.abstracts.RentalDao;
+
+@Service
+public class RentalManager implements RentalService {
+
+	private RentalDao rentalDao;
+	private ModelMapperService modelMapperService;
+	private CustomerService customerService;
+	
+	@Autowired
+	public RentalManager(RentalDao rentalDao, ModelMapperService modelMapperService) {
+		super();
+		this.rentalDao = rentalDao;
+		this.modelMapperService = modelMapperService;
+	}
+
+
+	@Override
+	public Result add(CreateRentalRequest createRentalRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

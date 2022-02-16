@@ -1,0 +1,21 @@
+package com.btkAkademi.rentACar.ws.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/additionalservice")
+public class AdditionalServicesController {
+	private AdditionalServiceService additionalServiceService;
+	@Autowired
+	public AdditionalServicesController(AdditionalServiceService additionalServiceService) {
+		super();
+		this.additionalServiceService = additionalServiceService;
+	}
+	@PostMapping("add")
+	public Result add(@RequestBody @Valid CreateAdditionalServiceRequest createAdditionalService) {
+
+		return this.additionalServiceService.add(createAdditionalService);
+	}
+	
+}

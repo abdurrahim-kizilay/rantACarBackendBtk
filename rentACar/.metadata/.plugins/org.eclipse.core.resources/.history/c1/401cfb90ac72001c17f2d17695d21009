@@ -1,0 +1,33 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.BrandService;
+import com.btkAkademi.rentACar.business.dtos.BrandListDto;
+import com.btkAkademi.rentACar.dataAccess.abstracts.BrandDao;
+import com.btkAkademi.rentACar.entities.concretes.Brand;
+
+@Service
+public class BrandManager implements BrandService{
+
+	private BrandDao brandDao;
+	
+	@Autowired
+	public BrandManager(BrandDao brandDao) {
+		super();
+		this.brandDao = brandDao;
+	}
+
+
+	@Override
+	public List<BrandListDto> getAll() {
+		List<Brand> brandList = this.brandDao.findAll();
+		return null;
+	}
+
+}
+
+//Java 8 Stream Api ye bak

@@ -1,0 +1,48 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.CarMaintananceService;
+import com.btkAkademi.rentACar.business.dtos.CarMaintananceListDto;
+import com.btkAkademi.rentACar.business.requests.carMaintanaceRequests.CreateCarMaintananceRequest;
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.core.utilities.results.DataResult;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.core.utilities.results.SuccessResult;
+import com.btkAkademi.rentACar.dataAccess.abstracts.CarMaintanaceDao;
+import com.btkAkademi.rentACar.entities.concretes.CarMaintanance;
+
+@Service
+public class CarMaintananceManager implements CarMaintananceService{
+
+	private CarMaintanaceDao carMaintanaceDao;
+	private ModelMapperService modelMapperService;
+	
+	@Autowired
+	public CarMaintananceManager(CarMaintanaceDao carMaintanaceDao, ModelMapperService modelMapperService) {
+		super();
+		this.carMaintanaceDao = carMaintanaceDao;
+		this.modelMapperService = modelMapperService;
+	}
+
+	@Override
+	public DataResult<List<CarMaintananceListDto>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result add(CreateCarMaintananceRequest createCarMaintanaceRequest) {
+		CarMaintanance carMaintanance = this.modelMapperService.forRequest().map(createCarMaintanaceRequest, CarMaintanance.class);
+		this.carMaintanaceDao.save(carMaintanance);
+		return new SuccessResult("Araba bakıma eklendi");
+	}
+
+}
+
+//Arabalar bakıma gönderilebilir
+//Bakımda olan arabalar listelenebilmelidir
+//Bakımda olan araba kiralanamaz

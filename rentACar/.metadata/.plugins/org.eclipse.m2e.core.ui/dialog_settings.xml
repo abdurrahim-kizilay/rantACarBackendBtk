@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\myjavaworkspaces\RentACar-master\app"/>
+			<item value="C:\myjavaworkspaces\BTK_Innova_Rent_A_Car_Project-master\BTK_Innova_Rent_A_Car_Project-master\app"/>
+			<item value="C:\Users\Abdurrahim Bey\Downloads\rentACar-master (3)\rentACar-master"/>
+			<item value="C:\myjavaworkspaces\rentACar-master\app"/>
+			<item value="C:\myjavaworkspaces\rentACar\app"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

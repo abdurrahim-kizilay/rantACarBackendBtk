@@ -1,0 +1,11 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import com.btkAkademi.rentACar.business.abstracts.CarMaintanaceService;
+
+public class CarMaintanaceManager implements CarMaintanaceService{
+
+}
+
+//Arabalar bakıma gönderilerbilir
+//Bakımda olan arabalar listelenebilmelidir
+//Bakımda olan araba kiralanamaz

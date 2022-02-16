@@ -1,0 +1,5 @@
+package com.btkAkademi.rentACar.business.requests.carMaintanaceRequests;
+
+public class CreateCarMaintanceRequest {
+
+}

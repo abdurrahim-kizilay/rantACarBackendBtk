@@ -1,0 +1,8 @@
+package com.btkAkademi.rentACar.business.constants;
+
+public class Messages {
+
+	public static final String InvalidBrandName="invalid.brand.name";
+	public static final String BrandAdded = "brand.added";
+	
+}

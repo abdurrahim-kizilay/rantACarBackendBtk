@@ -1,0 +1,6 @@
+package com.btkAkademi.rentACar.business.requests.pyamentRequests;
+
+public class CreatePaymentRequest {
+	 private LocalDate paymentDate;
+	 private Integer rentalId;
+}

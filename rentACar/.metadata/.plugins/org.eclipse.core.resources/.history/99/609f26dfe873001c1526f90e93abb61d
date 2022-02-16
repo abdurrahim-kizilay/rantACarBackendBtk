@@ -1,0 +1,68 @@
+package com.btkAkademi.rentACar.business.concretes;
+
+import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.btkAkademi.rentACar.business.abstracts.CustomerService;
+import com.btkAkademi.rentACar.business.abstracts.RentalService;
+import com.btkAkademi.rentACar.business.requests.rentalRequests.CreateRentalRequest;
+import com.btkAkademi.rentACar.core.utilities.business.BusinessRules;
+import com.btkAkademi.rentACar.core.utilities.mapping.ModelMapperService;
+import com.btkAkademi.rentACar.core.utilities.results.ErrorResult;
+import com.btkAkademi.rentACar.core.utilities.results.Result;
+import com.btkAkademi.rentACar.core.utilities.results.SuccessResult;
+import com.btkAkademi.rentACar.dataAccess.abstracts.RentalDao;
+import com.btkAkademi.rentACar.entities.concretes.Rental;
+
+@Service
+public class RentalManager implements RentalService {
+
+	private RentalDao rentalDao;
+	private ModelMapperService modelMapperService;
+	private CustomerService customerService;
+	
+	@Autowired
+	public RentalManager(RentalDao rentalDao, ModelMapperService modelMapperService, CustomerService customerService) {
+		super();
+		this.rentalDao = rentalDao;
+		this.modelMapperService = modelMapperService;
+		this.customerService = customerService;
+	}
+
+
+	@Override
+	public Result add(CreateRentalRequest createRentalRequest) {
+		Result result = BusinessRules.run(checkIfCustomerIdExists(createRentalRequest.getCustomerId()),checkKilometer(createRentalRequest.getRentedKlimeter(), createRentalRequest.getReturnedKilometer()),checkRentalDate(createRentalRequest.getRentDate(), createRentalRequest.getReturnDate()));
+		if(result != null) {
+			return result;
+		}
+		Rental rental = this.modelMapperService.forRequest().map(createRentalRequest, Rental.class);
+		this.rentalDao.save(rental);
+		return new SuccessResult("Kiralama Başarılı");
+	}
+
+	private Result checkRentalDate(LocalDate rentDate, LocalDate returnDate) {
+		if(rentDate.isAfter(rentDate)) {
+			return new ErrorResult("Kiralama tarihi dönüş tarihinden önce olamaz");
+		}
+		return new SuccessResult();
+	}
+	
+	private Result checkKilometer(int rentKilometer,int returnKilometer) {
+		if(returnKilometer<rentKilometer) {
+			return new ErrorResult("Kiralama km'si dönüş km'sinden yüksek olamaz");
+		}
+		return new SuccessResult();
+	}
+	
+	private Result checkIfCustomerIdExists(int id) {
+		var customer = this.customerService.getCustomerById(id).getData();
+		if(customer == null) {
+			return new ErrorResult("Böyle bir kullanıcı yok");
+		}
+		return new SuccessResult();
+	}
+}
